@@ -6,7 +6,7 @@
 
 (let ((minver "24.5"))
   (when (version< emacs-version minver)
-    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
+	(error "Your Emacs is too old -- this config requires v%s or higher" minver)))
 (when (version< emacs-version "25.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
@@ -20,10 +20,10 @@
 ;; Adjust garbage collection thresholds during startup, and thereafter
 ;;----------------------------------------------------------------------------
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
+	  (init-gc-cons-threshold (* 128 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
   (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+			(lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
@@ -47,6 +47,12 @@
 (require-package 'diminish)
 (maybe-require-package 'scratch)
 (require-package 'command-log-mode)
+
+
+; TODO: move to another file
+(setq-default indent-tabs-mode t)
+(setq tab-width 4)
+(defvaralias 'c-basic-offset 'tab-width)
 
 
 (require 'init-frame-hooks) ; хуки для фреймов
@@ -87,7 +93,7 @@
 ; (require 'init-csv)
 ; (require 'init-erlang)
 (require 'init-javascript)
-; (require 'init-php)
+(require 'init-php)
 (require 'init-org)
 ; (require 'init-nxml)
 (require 'init-html)
@@ -155,10 +161,10 @@
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
 (add-hook 'after-init-hook
-          (lambda ()
-            (require 'server)
-            (unless (server-running-p)
-              (server-start))))
+		  (lambda ()
+			(require 'server)
+			(unless (server-running-p)
+			  (server-start))))
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
