@@ -15,6 +15,12 @@
 
 (setq python-shell-interpreter "python3")
 
+(add-hook 'python-mode-hook
+          (lambda ()
+            (setq indent-tabs-mode t)
+            (setq python-indent 4)
+            (setq tab-width 4)))
+
 (require-package 'pip-requirements)
 
 (when (maybe-require-package 'anaconda-mode)
