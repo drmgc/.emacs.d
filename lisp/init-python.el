@@ -15,8 +15,10 @@
 
 (setq python-shell-interpreter "python3")
 
+(setq-default python-indent-offset drmgc/tab-width)
 (add-hook 'python-mode-hook
           (lambda ()
+	    (drmgc/enable-tabs)
             (setq indent-tabs-mode t)
             (setq python-indent 4)
             (setq tab-width 4)))
