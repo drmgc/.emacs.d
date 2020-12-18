@@ -83,6 +83,15 @@
 (global-whitespace-mode)
 
 
+;;----------------------------------------------------------------------------
+;; Keys-rebindings
+;;----------------------------------------------------------------------------
+
+(define-key key-translation-map (kbd "C-h") (kbd "DEL"))
+(define-key key-translation-map (kbd "C-M-h") (kbd "M-DEL"))
+(define-key key-translation-map (kbd "C-?") (kbd "C-h"))
+
+
 (require 'init-frame-hooks) ; хуки для фреймов
 (require 'init-xterm) ; интеграция с терминалом
 (require 'init-themes) ; темки
