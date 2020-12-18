@@ -3,8 +3,8 @@
 ;;; Code:
 
 (require-package 'atom-one-dark-theme)
-(require-package 'color-theme-sanityinc-solarized)
-(require-package 'color-theme-sanityinc-tomorrow)
+;; (require-package 'color-theme-sanityinc-solarized)
+;; (require-package 'color-theme-sanityinc-tomorrow)
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
 ;; first-time startup on Emacs > 26.3.
@@ -27,16 +27,16 @@
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
 ;;------------------------------------------------------------------------------
-(defun light ()
-  "Activate a light color theme."
-  (interactive)
-  (setq custom-enabled-themes '(sanityinc-tomorrow-day))
-  (reapply-themes))
+;; (defun light ()
+;;   "Activate a light color theme."
+;;   (interactive)
+;;   (setq custom-enabled-themes '(atom-one-dark))
+;;   (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(sanityinc-tomorrow-night))
+  (setq custom-enabled-themes '(atom-one-dark))
   (reapply-themes))
 
 
