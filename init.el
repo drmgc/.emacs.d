@@ -49,10 +49,38 @@
 (require-package 'command-log-mode)
 
 
-; TODO: move to another file
-(setq-default indent-tabs-mode t)
-(setq tab-width 4)
-(defvaralias 'c-basic-offset 'tab-width)
+;;----------------------------------------------------------------------------
+;; Indentation
+;;----------------------------------------------------------------------------
+
+(setq drmgc/tab-width 4)
+(defun drmgc/disable-tabs ()
+  "Disable TABS."
+  (setq indent-tabs-mode nil))
+(defun drmgc/enable-tabs ()
+  "Enable TABs."
+  (setq indent-tabs-mode t)
+  (setq tab-width drmgc/tab-width))
+
+(add-hook 'prog-mode-hook 'enable-tabs)
+
+(add-hook 'lisp-mode-hook 'disable-tabs)
+(add-hook 'emacs-lisp-mode-hook 'disable-tabs)
+
+(setq-default electric-indent-inhabit t)
+(setq backward-delete-char-untabify-method 'hungry)
+
+
+;;----------------------------------------------------------------------------
+;; whitespace-mode
+;;----------------------------------------------------------------------------
+
+(setq whitespace-style '(face tabs tab-mark trailing))
+(custom-set-faces
+ '(whitespace-tab ((t (:foreground "#636363")))))
+(setq whitespace-display-mappings
+  '((tab-mark 9 [124 9] [92 9]))) ; 124 is the ascii ID for '\|'
+(global-whitespace-mode)
 
 
 (require 'init-frame-hooks) ; хуки для фреймов
