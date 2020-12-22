@@ -54,6 +54,7 @@
 ;;----------------------------------------------------------------------------
 
 (setq drmgc/tab-width 4)
+(setq-default c-basic-offset drmgc/tab-width)
 (defun drmgc/disable-tabs ()
   "Disable TABS."
   (setq indent-tabs-mode nil))
@@ -62,10 +63,10 @@
   (setq indent-tabs-mode t)
   (setq tab-width drmgc/tab-width))
 
-(add-hook 'prog-mode-hook 'enable-tabs)
+(add-hook 'prog-mode-hook 'drmgc/enable-tabs)
 
-(add-hook 'lisp-mode-hook 'disable-tabs)
-(add-hook 'emacs-lisp-mode-hook 'disable-tabs)
+(add-hook 'lisp-mode-hook 'drmgc/disable-tabs)
+(add-hook 'emacs-lisp-mode-hook 'drmgc/disable-tabs)
 
 (setq-default electric-indent-inhabit t)
 (setq backward-delete-char-untabify-method 'hungry)
@@ -132,6 +133,7 @@
 (require 'init-javascript)
 (require 'init-php)
 (require 'init-org)
+(require 'init-latex)
 ; (require 'init-nxml)
 (require 'init-html)
 (require 'init-css)
