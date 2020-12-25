@@ -78,7 +78,7 @@
 
 (setq whitespace-style '(face tabs tab-mark trailing))
 (custom-set-faces
- '(whitespace-tab ((t (:foreground "#636363")))))
+ '(whitespace-tab ((t (:foreground "#353540")))))
 (setq whitespace-display-mappings
   '((tab-mark 9 [124 9] [92 9]))) ; 124 is the ascii ID for '\|'
 (global-whitespace-mode)
