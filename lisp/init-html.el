@@ -22,20 +22,20 @@
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
 
 (add-hook 'web-mode-hook
-	  (lambda ()
-	    (set (make-local-variable 'company-backends)
-		 '(company-css
-		   company-web-html
-		   company-files
-		   company-yasnippet))
-	    (setq tab-width 4
-		  indent-tabs-mode t
-		  web-mode-markup-indent-offset 4
-		  web-mode-code-indent-offset 4
-		  web-mode-css-indent-offset 4)
+          (lambda ()
+            (set (make-local-variable 'company-backends)
+                 '(company-css
+                   company-web-html
+                   company-files
+                   company-yasnippet))
+            (setq tab-width 2
+                  indent-tabs-mode t
+                  web-mode-markup-indent-offset 2
+                  web-mode-code-indent-offset 2
+                  web-mode-css-indent-offset 2)
             (web-mode-use-tabs)
-	    (setq web-mode-enable-current-column-hightlight t
-		  web-mode-enable-current-element-hightlight t)
+            (setq web-mode-enable-current-column-hightlight t
+                  web-mode-enable-current-element-hightlight t)
             (setq web-mode-enable-auto-pairing nil)
             (setq web-mode-engine-alist
                   '(("django" . "\\.j2\\'")))))
@@ -44,7 +44,8 @@
 (add-hook 'web-mode-hook 'emmet-mode)
 (add-hook 'emmet-mode-hook
           (lambda ()
-            (setq emmet-indentation 4)))
+            (setq emmet-indentation 2)
+            (setq tab-width 2)))
 
 ;; (add-hook 'html-mode ())
 ;; (when (maybe-require-package 'multi-web-mode)
