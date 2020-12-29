@@ -21,6 +21,8 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
 
+(defvar drmgc/web-tab-width 2)
+
 (add-hook 'web-mode-hook
           (lambda ()
             (set (make-local-variable 'company-backends)
@@ -28,11 +30,11 @@
                    company-web-html
                    company-files
                    company-yasnippet))
-            (setq tab-width 2
+            (setq tab-width drmgc/web-tab-width
                   indent-tabs-mode t
-                  web-mode-markup-indent-offset 2
-                  web-mode-code-indent-offset 2
-                  web-mode-css-indent-offset 2)
+                  web-mode-markup-indent-offset drmgc/web-tab-width
+                  web-mode-code-indent-offset drmgc/web-tab-width
+                  web-mode-css-indent-offset drmgc/web-tab-width)
             (web-mode-use-tabs)
             (setq web-mode-enable-current-column-hightlight t
                   web-mode-enable-current-element-hightlight t)
@@ -44,8 +46,8 @@
 (add-hook 'web-mode-hook 'emmet-mode)
 (add-hook 'emmet-mode-hook
           (lambda ()
-            (setq emmet-indentation 2)
-            (setq tab-width 2)))
+            (setq emmet-indentation drmgc/web-tab-width)
+            (setq tab-width drmgc/web-tab-width)))
 
 ;; (add-hook 'html-mode ())
 ;; (when (maybe-require-package 'multi-web-mode)

@@ -53,7 +53,7 @@
 ;; Indentation
 ;;----------------------------------------------------------------------------
 
-(setq drmgc/tab-width 4)
+(defvar drmgc/tab-width 4)
 (setq-default c-basic-offset drmgc/tab-width)
 (defun drmgc/disable-tabs ()
   "Disable TABS."
