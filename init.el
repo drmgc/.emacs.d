@@ -92,6 +92,9 @@
 (define-key key-translation-map (kbd "C-M-h") (kbd "M-DEL"))
 (define-key key-translation-map (kbd "C-?") (kbd "C-h"))
 
+(require 'no-easy-keys)
+(no-easy-keys 1)
+
 
 (require 'init-frame-hooks) ; хуки для фреймов
 (require 'init-xterm) ; интеграция с терминалом
