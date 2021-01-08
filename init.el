@@ -1,8 +1,10 @@
 ;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
 
 
-;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;;(setq debug-on-error t)
+
+;; Make frame transparency overridable
+(defvar drmgc/frame-transparency '(90 . 90))
 
 (let ((minver "24.5"))
   (when (version< emacs-version minver)
@@ -34,6 +36,16 @@
 ;; Calls (package-initialize)
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
+
+;;----------------------------------------------------------------------------
+;; use-package
+;;----------------------------------------------------------------------------
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(require 'use-package)
+(setq use-package-always-ensure t)
 
 ;;----------------------------------------------------------------------------
 ;; Allow users to provide an optional "init-preload-local.el"
