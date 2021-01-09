@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: once with guards
+# key: once
+# --
+#pragma once
+
+#define ${1:`(upcase (file-name-nondirectory (file-name-sans-extension (or (buffer-file-name) ""))))`_H} ${2:1}
+
+$0

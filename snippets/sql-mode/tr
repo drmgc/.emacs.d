@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: trigger
+# key: tr
+# --
+${1:DROP TRIGGER IF EXISTS $2 ON $3;}
+CREATE TRIGGER ${2:trigger_name}
+	${4:BEFORE INSERT OR UPDATE} ON ${3:table}
+	FOR EACH ${5:ROW}
+	EXECUTE FUNCTION ${6:function}($7);

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: trigger function
+# key: trf
+# --
+CREATE${1: OR REPLACE} FUNCTION ${2:function_name}($3)
+	RETURNS TRIGGER
+	AS $$
+${5:${6:DECLARE
+	$7
+}BEGIN
+	$0
+END}
+$$ LANGUAGE ${4:plpgsql};

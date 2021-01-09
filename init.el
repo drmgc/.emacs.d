@@ -146,7 +146,14 @@
 
 (require 'init-projectile)
 
+(use-package yasnippet
+  :hook (prog-mode . yas-minor-mode)
+  :config
+  (yas-reload-all)
+  (yas-global-mode))
+
 (require 'init-compile)
+(require 'init-cmake)
 ; (require 'init-crontab)
 ; (require 'init-textile)
 ; (require 'init-markdown)
