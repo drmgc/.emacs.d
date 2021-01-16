@@ -198,6 +198,17 @@
 ; (require 'init-clojure-cider)
 ; (require 'init-common-lisp)
 
+
+(use-package glsl-mode
+  :mode (("\\.glsl\\'" . glsl-mode)
+         ("\\.vert\\'" . glsl-mode)
+         ("\\.frag\\'" . glsl-mode)
+         ("\\.geom\\'" . glsl-mode)
+         ("\\.vs\\'" . glsl-mode)
+         ("\\.fs\\'" . glsl-mode)
+         ("\\.gs\\'" . glsl-mode)))
+
+
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 
