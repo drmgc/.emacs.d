@@ -72,7 +72,7 @@
   (setq indent-tabs-mode nil))
 (defun drmgc/enable-tabs ()
   "Enable TABs."
-  (setq indent-tabs-mode t)
+  ;; (setq indent-tabs-mode t)
   (setq tab-width drmgc/tab-width))
 
 (add-hook 'prog-mode-hook 'drmgc/enable-tabs)
@@ -129,6 +129,11 @@
 (require 'init-windows) ; окошечки
 (require 'init-sessions) ; сессии
 (require 'init-mmm)
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
 
 ;;----------------------------------------------------------------------------
 ;; shell-mode
