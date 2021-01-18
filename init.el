@@ -209,6 +209,7 @@
          ("\\.gs\\'" . glsl-mode)))
 
 (use-package smart-tabs-mode
+  :config
   (add-hook 'c-mode-hook 'smart-tabs-mode-enable)
   (smart-tabs-advice c-indent-line c-basic-offset)
   (smart-tabs-advice c-indent-region c-basic-offset))
