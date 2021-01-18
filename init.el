@@ -198,6 +198,13 @@
 ; (require 'init-clojure-cider)
 ; (require 'init-common-lisp)
 
+(use-package cpputils-cmake
+  :config
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (if (derived-mode-p 'c-mode 'c++-mode)
+                  (cppcm-reload-all)
+                ))))
 
 (use-package glsl-mode
   :mode (("\\.glsl\\'" . glsl-mode)
