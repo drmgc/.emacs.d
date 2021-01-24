@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: define constructor
+# key: cstr
+# --
+$1::$1() ${2:: $3 }{$0}

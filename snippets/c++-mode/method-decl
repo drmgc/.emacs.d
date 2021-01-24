@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: declare method
+# key: mt
+# --
+${3:void} ${1:method_name}($2);

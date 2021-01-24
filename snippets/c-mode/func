@@ -2,4 +2,4 @@
 # name: Declare function
 # key: func
 # --
-${3:return_type} ${1:funcition_name}(${2:void});
+${3:void} ${1:funcition_name}(${2:void});

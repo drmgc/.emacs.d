@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Define method
+# key: dmt
+# --
+${4:void} ${1:class_t}::${2:method_name}($3) {$0}

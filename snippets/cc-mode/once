@@ -4,6 +4,6 @@
 # --
 #pragma once
 
-#define ${1:`(upcase (file-name-nondirectory (file-name-sans-extension (or (buffer-file-name) ""))))`_H} ${2:1}
+#define ${1:`(upcase (file-name-nondirectory (file-name-sans-extension (or (buffer-file-name) ""))))`_`(upcase (file-name-extension (or (buffer-file-name) "")))`} ${2:1}
 
 $0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: define destructor
+# key: dstr
+# --
+$1::~$1() {$0}
