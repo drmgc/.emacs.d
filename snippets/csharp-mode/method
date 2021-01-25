@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: method
+# key: mt
+# --
+${2:$$(yas-choose-value '("public " "internal " "protected " "private " ""))}${3:void} $1($4) {$0}

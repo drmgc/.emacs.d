@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: class
+# key: cls
+# --
+${1:public} class $2 ${3:: $4 } {$0}
