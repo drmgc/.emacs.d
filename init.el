@@ -8,7 +8,7 @@
 
 (let ((minver "24.5"))
   (when (version< emacs-version minver)
-	(error "Your Emacs is too old -- this config requires v%s or higher" minver)))
+    (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
 (when (version< emacs-version "25.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
@@ -22,10 +22,10 @@
 ;; Adjust garbage collection thresholds during startup, and thereafter
 ;;----------------------------------------------------------------------------
 (let ((normal-gc-cons-threshold (* 20 1024 1024))
-	  (init-gc-cons-threshold (* 128 1024 1024)))
+      (init-gc-cons-threshold (* 128 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
   (add-hook 'emacs-startup-hook
-			(lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
@@ -217,7 +217,7 @@
 
 (use-package smart-tabs-mode
   :config
-  (add-hook 'c-mode-hook 'smart-tabs-mode-enable)
+  (add-hook 'cc-mode-hook 'smart-tabs-mode-enable)
   (add-hook 'csharp-mode-hook 'smart-tabs-mode-enable)
   (smart-tabs-advice c-indent-line c-basic-offset)
   (smart-tabs-advice c-indent-region c-basic-offset))
@@ -260,10 +260,10 @@
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
 (add-hook 'after-init-hook
-		  (lambda ()
-			(require 'server)
-			(unless (server-running-p)
-			  (server-start))))
+          (lambda ()
+            (require 'server)
+            (unless (server-running-p)
+              (server-start))))
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
