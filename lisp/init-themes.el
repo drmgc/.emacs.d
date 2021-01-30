@@ -21,8 +21,11 @@
       (load-theme theme)))
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
-(add-hook 'after-init-hook 'reapply-themes)
+;; (add-hook 'after-init-hook 'reapply-themes)
 
+(use-package vscode-dark-plus-theme
+  :config
+  (load-theme 'vscode-dark-plus t))
 
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
