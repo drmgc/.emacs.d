@@ -8,6 +8,7 @@
   'company
   '(add-to-list 'company-backends #'company-omnisharp))
 
+(require-package 'csharp-mode)
 
 (add-hook 'csharp-mode-hook #'company-mode)
 (add-hook 'csharp-mode-hook #'flycheck-mode)
@@ -19,9 +20,13 @@
             (setq indent-tabs-mode t)
             (setq c-basic-offset 4)
             (setq truncate-lines t)
-            (setq tab-width 4)))
+            (setq tab-width 4)
 
-(require-package 'csharp-mode)
+            (define-key csharp-mode-map (kbd "C-c r") 'omnisharp-rename)
+            (define-key csharp-mode-map (kbd "C-c u") 'omnisharp-find-usages-with-ido)
+            (define-key csharp-mode-map (kbd "C-c U") 'omnisharp-find-usages)
+            (define-key csharp-mode-map (kbd "C-c i") 'omnisharp-find-implementations)))
+
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 
 (provide 'init-csharp)
