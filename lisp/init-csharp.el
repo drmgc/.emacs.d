@@ -23,8 +23,7 @@
             (setq tab-width 4)
 
             (define-key csharp-mode-map (kbd "C-c r") 'omnisharp-rename)
-            (define-key csharp-mode-map (kbd "C-c u") 'omnisharp-find-usages-with-ido)
-            (define-key csharp-mode-map (kbd "C-c U") 'omnisharp-find-usages)
+            (define-key csharp-mode-map (kbd "C-c u") 'omnisharp-find-usages)
             (define-key csharp-mode-map (kbd "C-c i") 'omnisharp-find-implementations)))
 
 (add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
