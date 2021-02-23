@@ -27,19 +27,25 @@
   :config
   (load-theme 'vscode-dark-plus t))
 
+(use-package twilight-bright-theme)
+
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
 ;;------------------------------------------------------------------------------
-;; (defun light ()
-;;   "Activate a light color theme."
-;;   (interactive)
-;;   (setq custom-enabled-themes '(atom-one-dark))
-;;   (reapply-themes))
+(defun light ()
+  "Activate a light color theme."
+  (interactive)
+  (setq custom-enabled-themes '(twilight-bright))
+  (custom-set-faces
+   '(whitespace-tab ((t (:foreground "#ccc")))))
+  (reapply-themes))
 
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
   (setq custom-enabled-themes '(atom-one-dark))
+  (custom-set-faces
+   '(whitespace-tab ((t (:foreground "#353540")))))
   (reapply-themes))
 
 
