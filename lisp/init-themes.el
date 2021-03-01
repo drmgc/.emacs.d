@@ -3,6 +3,8 @@
 ;;; Code:
 
 (require-package 'atom-one-dark-theme)
+(require-package 'vscode-dark-plus-theme)
+(require-package 'twilight-bright-theme)
 ;; (require-package 'color-theme-sanityinc-solarized)
 ;; (require-package 'color-theme-sanityinc-tomorrow)
 
@@ -11,7 +13,7 @@
 (setq custom-safe-themes t)
 
 ; ;; If you don't customize it, this is the theme you get.
-(setq-default custom-enabled-themes '(atom-one-dark))
+(setq-default custom-enabled-themes '(vscode-dark-plus))
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
@@ -21,13 +23,19 @@
       (load-theme theme)))
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
-;; (add-hook 'after-init-hook 'reapply-themes)
+(defun disable-all-themes ()
+  "disable all active themes."
+  (dolist (i custom-enabled-themes)
+    (disable-theme i)))
 
-(use-package vscode-dark-plus-theme
-  :config
-  (load-theme 'vscode-dark-plus t))
+(defadvice load-theme (before disable-themes-first activate)
+  (disable-all-themes))
 
-(use-package twilight-bright-theme)
+(add-hook 'after-init-hook 'reapply-themes)
+
+;; (use-package vscode-dark-plus-theme)
+
+;; (use-package twilight-bright-theme)
 
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
@@ -43,7 +51,7 @@
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
-  (setq custom-enabled-themes '(atom-one-dark))
+  (setq custom-enabled-themes '(vscode-dark-plus))
   (custom-set-faces
    '(whitespace-tab ((t (:foreground "#353540")))))
   (reapply-themes))
