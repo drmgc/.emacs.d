@@ -218,12 +218,7 @@
          ("\\.fs\\'" . glsl-mode)
          ("\\.gs\\'" . glsl-mode)))
 
-(use-package gdscript-mode
-  :config
-  (add-hook 'gdscript-mode-hook
-            '(lambda () (set (make-local-variable 'yas-indent-line) 'fixed)))
-  (setq gdscript-use-tab-indents t)
-  (setq gdscript-indent-offset 4))
+(require 'init-gdscript)
 
 (use-package smart-tabs-mode
   :config
