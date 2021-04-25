@@ -20,6 +20,7 @@
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
 
 (defvar drmgc/web-tab-width 2)
 
@@ -38,9 +39,10 @@
             (web-mode-use-tabs)
             (setq web-mode-enable-current-column-hightlight t
                   web-mode-enable-current-element-hightlight t)
-            (setq web-mode-enable-auto-pairing nil)
+            (setq web-mode-enable-auto-pairing t)
             (setq web-mode-engine-alist
-                  '(("django" . "\\.j2\\'")))))
+                  '(("django" . "\\.j2\\'")
+                    ("django" . "\\.twig\\'")))))
 
 (require-package 'emmet-mode)
 (add-hook 'web-mode-hook 'emmet-mode)
