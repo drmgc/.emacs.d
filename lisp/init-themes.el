@@ -4,7 +4,7 @@
 
 (require-package 'atom-one-dark-theme)
 (require-package 'vscode-dark-plus-theme)
-(require-package 'twilight-bright-theme)
+(require-package 'plan9-theme)
 ;; (require-package 'color-theme-sanityinc-solarized)
 ;; (require-package 'color-theme-sanityinc-tomorrow)
 
@@ -43,7 +43,7 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(twilight-bright))
+  (setq custom-enabled-themes '(plan9))
   (custom-set-faces
    '(whitespace-tab ((t (:foreground "#ccc")))))
   (reapply-themes))
