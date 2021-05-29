@@ -5,6 +5,8 @@
 (require-package 'atom-one-dark-theme)
 (require-package 'vscode-dark-plus-theme)
 (require-package 'plan9-theme)
+(require-package 'leuven-theme)
+(require-package 'twilight-bright-theme)
 ;; (require-package 'color-theme-sanityinc-solarized)
 ;; (require-package 'color-theme-sanityinc-tomorrow)
 
@@ -33,17 +35,13 @@
 
 (add-hook 'after-init-hook 'reapply-themes)
 
-;; (use-package vscode-dark-plus-theme)
-
-;; (use-package twilight-bright-theme)
-
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
 ;;------------------------------------------------------------------------------
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(plan9))
+  (setq custom-enabled-themes '(twilight-bright))
   (custom-set-faces
    '(whitespace-tab ((t (:foreground "#ccc")))))
   (reapply-themes))

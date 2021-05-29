@@ -21,8 +21,11 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 (defvar drmgc/web-tab-width 2)
+
+(require 'swagger-jsdoc-edit)
 
 (add-hook 'web-mode-hook
           (lambda ()
