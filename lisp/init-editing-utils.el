@@ -80,6 +80,7 @@
   (newline-and-indent))
 
 (global-set-key (kbd "S-<return>") 'sanityinc/newline-at-end-of-line)
+(global-set-key (kbd "C-S-m") 'sanityinc/newline-at-end-of-line)
 
 
 
