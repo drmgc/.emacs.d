@@ -2,13 +2,18 @@
 ;;; Commentary:
 ;;; Code:
 
+;;------------------------------------------------------------------------------
+;; Fonts
+;;------------------------------------------------------------------------------
+(set-frame-font "Hack" nil t)
+
+
 (require-package 'atom-one-dark-theme)
+(require-package 'one-themes)
 (require-package 'vscode-dark-plus-theme)
 (require-package 'plan9-theme)
 (require-package 'leuven-theme)
 (require-package 'twilight-bright-theme)
-;; (require-package 'color-theme-sanityinc-solarized)
-;; (require-package 'color-theme-sanityinc-tomorrow)
 
 ;; Don't prompt to confirm theme safety. This avoids problems with
 ;; first-time startup on Emacs > 26.3.
@@ -33,7 +38,6 @@
 (defadvice load-theme (before disable-themes-first activate)
   (disable-all-themes))
 
-(add-hook 'after-init-hook 'reapply-themes)
 
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark
@@ -41,7 +45,8 @@
 (defun light ()
   "Activate a light color theme."
   (interactive)
-  (setq custom-enabled-themes '(twilight-bright))
+  (disable-all-themes)
+  (setq custom-enabled-themes '(one-light))
   (custom-set-faces
    '(whitespace-tab ((t (:foreground "#ccc")))))
   (reapply-themes))
@@ -49,10 +54,13 @@
 (defun dark ()
   "Activate a dark color theme."
   (interactive)
+  (disable-all-themes)
   (setq custom-enabled-themes '(vscode-dark-plus))
   (custom-set-faces
    '(whitespace-tab ((t (:foreground "#353540")))))
   (reapply-themes))
+
+(add-hook 'after-init-hook 'dark)
 
 
 (when (maybe-require-package 'dimmer)
