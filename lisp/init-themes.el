@@ -20,7 +20,7 @@
 (setq custom-safe-themes t)
 
 ; ;; If you don't customize it, this is the theme you get.
-(setq-default custom-enabled-themes '(vscode-dark-plus))
+(setq-default custom-enabled-themes '(atom-one-dark))
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
@@ -55,12 +55,12 @@
   "Activate a dark color theme."
   (interactive)
   (disable-all-themes)
-  (setq custom-enabled-themes '(vscode-dark-plus))
+  (setq custom-enabled-themes '(atom-one-dark))
   (custom-set-faces
    '(whitespace-tab ((t (:foreground "#353540")))))
   (reapply-themes))
 
-(add-hook 'after-init-hook 'dark)
+;; (add-hook 'after-init-hook 'dark)
 
 
 (when (maybe-require-package 'dimmer)
