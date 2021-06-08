@@ -189,6 +189,7 @@
     (kill-region (point) prev-pos)))
 
 (global-set-key (kbd "C-M-<backspace>") 'kill-back-to-indentation)
+(global-set-key (kbd "C-S-h") 'kill-back-to-indentation)
 
 
 
