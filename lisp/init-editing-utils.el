@@ -87,6 +87,8 @@
 (with-eval-after-load 'subword
   (diminish 'subword-mode))
 
+(global-set-key (kbd "C-c w") 'subword-mode)
+
 
 
 (when (fboundp 'display-line-numbers-mode)
