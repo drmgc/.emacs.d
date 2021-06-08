@@ -14,5 +14,7 @@
     (with-eval-after-load 'company
       (add-to-list 'company-backends 'company-ac-php-backend))))
 
+(use-package auto-complete :config (ac-flyspell-workaround) )
+
 (provide 'init-php)
 ;;; init-php.el ends here
