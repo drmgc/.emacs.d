@@ -22,6 +22,8 @@
             (setq truncate-lines t)
             (setq tab-width 4)
 
+            (define-key csharp-mode-map (kbd "C-c f") 'omnisharp-code-format-region)
+            (define-key csharp-mode-map (kbd "C-c C-f") 'omnisharp-code-format-entire-file)
             (define-key csharp-mode-map (kbd "C-c r") 'omnisharp-rename)
             (define-key csharp-mode-map (kbd "C-c u") 'omnisharp-find-usages)
             (define-key csharp-mode-map (kbd "C-c i") 'omnisharp-find-implementations)))
