@@ -172,6 +172,7 @@
 (require 'init-php)
 (require 'init-org)
 (require 'init-latex)
+(require 'init-go)
 ; (require 'init-nxml)
 (require 'init-html)
 (require 'init-css)
