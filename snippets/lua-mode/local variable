@@ -1,0 +1,4 @@
+# key: l
+# name: local variable
+# --
+local $1${2: = $3}

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: local require
+# key: lreq
+# --
+local $1 = require '${2:$1}'
