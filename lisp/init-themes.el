@@ -63,6 +63,49 @@
 ;; (add-hook 'after-init-hook 'dark)
 
 
+
+;;------------------------------------------------------------------------------
+;; Setting theme depending of time and month
+;;------------------------------------------------------------------------------
+
+(defvar daylight-hours-by-month (make-list 12 '(9 . 18)))
+(setq daylight-hours-by-month (list '(3 . 19) ; январь
+                                    '(3 . 19) ; февраль
+                                    '(3 . 19) ; март
+                                    '(3 . 19) ; апрель
+                                    '(3 . 19) ; май
+                                    '(3 . 19) ; июнь
+                                    '(3 . 19) ; июль
+                                    '(8 . 18) ; август
+                                    '(3 . 19) ; сентябрь
+                                    '(3 . 19) ; октябрь
+                                    '(3 . 19) ; ноябрь
+                                    '(3 . 19))) ; декабрь
+
+
+(defun update-color-theme-by-time ()
+  "Setting color theme by timem and month."
+  (interactive)
+  (let* ((now (current-time))
+         (decoded-time (decode-time now))
+         (hours (nth 2 decoded-time))
+         (month (nth 4 decoded-time))
+         (daylight-hours (nth (- month 1) daylight-hours-by-month))
+         (daylight-start (car daylight-hours))
+         (daylight-end (cdr daylight-hours))
+         (daylight-now (and (>= hours daylight-start)
+                            (< hours daylight-end))))
+    (progn (if daylight-now (light) (dark))
+           (message "Using %s theme because of daylight time from %d:00 to %d:00 in %s"
+                    (if daylight-now "light" "dark")
+                    daylight-start daylight-end
+                    (format-time-string "%d %B" now)))))
+
+(add-hook 'emacs-startup-hook 'update-color-theme-by-time)
+
+
+;; Dimmer
+
 (when (maybe-require-package 'dimmer)
   (setq-default dimmer-fraction 0.15)
   (add-hook 'after-init-hook 'dimmer-mode)
