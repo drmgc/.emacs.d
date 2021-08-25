@@ -12,9 +12,15 @@
     (setq-default projectile-generic-command "rg --files --hidden"))
 
   (with-eval-after-load 'projectile
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
-  (maybe-require-package 'ibuffer-projectile))
+    ;; Шоб в tramp не лагало :)
+    (defadvice projectile-project-root (around ignore-remote first activate)
+      (unless (file-remote-p default-directory) ad-do-it)))
+
+  (maybe-require-package 'ibuffer-projectile)
+  ;; (projectile-global-mode nil)
+  )
 
 
 (provide 'init-projectile)
