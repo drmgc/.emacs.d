@@ -43,6 +43,11 @@
 (unless (fboundp 'scss-mode)
   ;; Prefer the scss-mode built into Emacs
   (require-package 'scss-mode))
+
+(add-hook 'scss-mode-hook (lambda ()
+                            (setq indent-tabs-mode t)
+                            (setq tab-width 4)))
+
 (setq-default scss-compile-at-save nil)
 
 
