@@ -70,12 +70,17 @@
 (defun drmgc/disable-tabs ()
   "Disable TABS."
   (setq indent-tabs-mode nil))
+
 (defun drmgc/enable-tabs ()
   "Enable TABs."
-  ;; (setq indent-tabs-mode t)
+  (setq indent-tabs-mode t))
+
+(defun drmgc/set-tab-width ()
+  "Enable TABs."
   (setq tab-width drmgc/tab-width))
 
-(add-hook 'prog-mode-hook 'drmgc/enable-tabs)
+(add-hook 'prog-mode-hook 'drmgc/set-tab-width)
+(add-hook 'c-mode-common-hook 'drmgc/enable-tabs)
 
 (add-hook 'lisp-mode-hook 'drmgc/disable-tabs)
 (add-hook 'emacs-lisp-mode-hook 'drmgc/disable-tabs)
