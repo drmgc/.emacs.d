@@ -19,6 +19,7 @@
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.cjs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
@@ -43,6 +44,8 @@
             (setq web-mode-enable-current-column-hightlight t
                   web-mode-enable-current-element-hightlight t)
             (setq web-mode-enable-auto-pairing t)
+            (add-to-list 'web-mode-content-types-alist '("javascript" . "\\.cjs\\'"))
+
             (setq web-mode-engine-alist
                   '(("django" . "\\.j2\\'")
                     ("django" . "\\.twig\\'")))))
