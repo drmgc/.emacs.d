@@ -2,11 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'omnisharp)
-
-(eval-after-load
-  'company
-  '(add-to-list 'company-backends #'company-omnisharp))
+(eval-after-load 'company
+  '(progn
+     (add-to-list 'company-backends #'company-lsp)
+     (add-to-list 'company-backends #'company-omnisharp)))
 
 (require-package 'csharp-mode)
 
@@ -15,7 +14,7 @@
 
 (add-hook 'csharp-mode-hook
           (lambda ()
-            (omnisharp-mode)
+            (lsp)
 
             (setq indent-tabs-mode t)
             (setq c-basic-offset 4)
