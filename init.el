@@ -118,6 +118,11 @@
 (require 'init-themes) ; темки
 ; (require 'init-osx-keys)
 (require 'init-gui-frames) ; чо касаема фреймов
+
+;; Emojis
+(use-package emojify
+  :hook (after-init . global-emojify-mode))
+
 (require 'init-dired)
 (require 'init-isearch)
 (require 'init-grep)

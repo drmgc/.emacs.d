@@ -56,3 +56,6 @@ site-lisp/package/
 *.log
 *.cache
 /server
+
+# emojify
+/emojis
