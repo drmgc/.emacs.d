@@ -1,4 +1,6 @@
 ;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 
 ;;(setq debug-on-error t)
@@ -26,6 +28,7 @@
   (setq gc-cons-threshold init-gc-cons-threshold)
   (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+
 
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
