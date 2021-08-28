@@ -231,6 +231,7 @@
          ("\\.gs\\'" . glsl-mode)))
 
 (require 'init-gdscript)
+(require 'init-rust)
 
 (use-package smart-tabs-mode
   :config
