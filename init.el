@@ -204,6 +204,8 @@
 ; (require 'init-nix)
 (maybe-require-package 'nginx-mode)
 
+(use-package restclient)
+
 (require 'init-csharp)
 
 ; (require 'init-paredit)
