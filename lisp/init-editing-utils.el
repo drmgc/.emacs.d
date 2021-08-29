@@ -83,6 +83,32 @@
 (global-set-key (kbd "C-S-m") 'sanityinc/newline-at-end-of-line)
 (global-set-key (kbd "C-M-m") 'sanityinc/newline-at-end-of-line)
 
+
+
+
+(defvar drmgc/eol-symbols-ring '(";" ","))
+
+(defun drmgc/insert-from-eol-ring-at-end-of-line ()
+  "Insert symbols at end of line with symbols from ring.
+Ring is placed in `drmgc/eol-symbols-ring`.  Non-nil variable `current-prefix-arg` reverses ring."
+  (interactive)
+  (let* ((ring drmgc/eol-symbols-ring)
+         (eol-symbol (buffer-substring-no-properties (- (point-at-eol) 1) (point-at-eol)))
+         (current-ring-position (seq-position ring eol-symbol))
+         (ring-position-shift (if (equal current-prefix-arg nil) 1 -1)))
+    (save-excursion
+      (move-end-of-line nil)
+      (cond
+       (current-ring-position
+        (backward-delete-char 1)
+        (let ((next-ring-symbol (nth (+ current-ring-position ring-position-shift)
+                                     ring)))
+          (if next-ring-symbol
+              (insert next-ring-symbol))))
+       (t (insert (car ring)))))))
+
+(global-set-key (kbd "C-c C-j") 'drmgc/insert-from-eol-ring-at-end-of-line)
+
 
 
 (with-eval-after-load 'subword
