@@ -192,7 +192,7 @@
 ; (require 'init-haml)
 ; (require 'init-http)
 (require 'init-python)
-; (require 'init-haskell)
+(require 'init-haskell)
 ; (require 'init-elm)
 ; (require 'init-purescript)
 ; (require 'init-ruby)
