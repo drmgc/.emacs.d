@@ -116,6 +116,14 @@
 (no-easy-keys 1)
 
 
+;;----------------------------------------------------------------------------
+;; doom-modeline
+;;----------------------------------------------------------------------------
+(use-package doom-modeline
+  :hook (after-init . doom-modeline-mode)
+  :init
+  (setq doom-modeline-indent-info t))
+
 (require 'init-frame-hooks) ; хуки для фреймов
 (require 'init-xterm) ; интеграция с терминалом
 (require 'init-themes) ; темки
