@@ -246,6 +246,8 @@
 (require 'init-gdscript)
 (require 'init-rust)
 
+(use-package systemd)
+
 (use-package smart-tabs-mode
   :config
   (add-hook 'c-mode-common-hook 'smart-tabs-mode-enable)
