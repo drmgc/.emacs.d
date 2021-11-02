@@ -380,6 +380,12 @@ typical word processor."
      (sql . t)
      (sqlite . t))))
 
+(with-eval-after-load 'org
+  (use-package plantuml-mode
+    :config
+    (setq org-plantuml-jar-path (expand-file-name "/home/drmgc/plantuml.jar"))
+    (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+    (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))))
 
 (provide 'init-org)
 ;;; init-org.el ends here
