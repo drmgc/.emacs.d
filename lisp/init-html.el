@@ -23,6 +23,7 @@
 (add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.twig\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
 
 (defvar drmgc/web-tab-width 2)
 
