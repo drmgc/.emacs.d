@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: constructor
+# key: c
+# --
+constructor($1) {$0}

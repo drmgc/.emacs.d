@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: class
+# key: cls
+# --
+class $1 ${2:extends $3 }${4:implements $5 }{$0}

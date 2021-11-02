@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: @Annotation()
+# key: @
+# --
+@$1($2)
