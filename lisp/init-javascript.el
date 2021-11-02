@@ -109,6 +109,8 @@
     (add-hook (derived-mode-hook-name mode) 'add-node-modules-path)))
 
 (setq-default typescript-indent-level 2)
+(add-hook 'typescript-mode-hook (lambda ()
+                                  (subword-mode 1)))
 
 
 (provide 'init-javascript)
