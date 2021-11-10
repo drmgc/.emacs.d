@@ -5,8 +5,8 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
-  :hook
-  (lsp-mode . lsp-enable-which-key-integration))
+  :hook ((lsp-mode . lsp-enable-which-key-integration)
+         (typescript-mode . lsp-deferred)))
 
 
 (use-package lsp-ui :commands lsp-ui-mode)
