@@ -162,6 +162,11 @@ Ring is placed in `drmgc/eol-symbols-ring`.  Non-nil variable `current-prefix-ar
 
 
 
+
+(global-set-key (kbd "C-S-l") 'recenter-top-bottom)
+(global-unset-key (kbd "C-l"))
+
+
 (require-package 'browse-kill-ring)
 (setq browse-kill-ring-separator "\f")
 (global-set-key (kbd "M-Y") 'browse-kill-ring)
