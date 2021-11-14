@@ -160,6 +160,17 @@
 
 
 ;;----------------------------------------------------------------------------
+;; writeroom-mode
+;;----------------------------------------------------------------------------
+(use-package writeroom-mode
+  :bind (("C-M-S-z" . writeroom-mode)
+         :map writeroom-mode-map
+         ("C-M-<" . writeroom-decrease-width)
+         ("C-M->" . writeroom-increase-width)
+         ("C-M-=" . writeroom-adjust-width)))
+
+
+;;----------------------------------------------------------------------------
 ;; shell-mode
 ;;----------------------------------------------------------------------------
 (add-hook 'shell-mode-hook
