@@ -132,5 +132,7 @@ This command currently blocks the UI, sorry."
 ;; Set a global keyword to use sqlup on a region
 (global-set-key (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
 
+(use-package ejc-sql)
+
 (provide 'init-sql)
 ;;; init-sql.el ends here
