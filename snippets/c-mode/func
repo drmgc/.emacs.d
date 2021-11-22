@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: Declare function
-# key: func
+# key: fn
 # --
 ${3:void} ${1:funcition_name}(${2:void});
