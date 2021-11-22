@@ -7,6 +7,7 @@
   (setq lsp-keymap-prefix "C-l")
   :hook ((lsp-mode . lsp-enable-which-key-integration)
          (csharp-mode . lsp-deferred)
+         (c-mode . lsp-deferred)
          (typescript-mode . lsp-deferred)))
 
 
