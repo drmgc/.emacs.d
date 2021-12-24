@@ -387,5 +387,10 @@ typical word processor."
     (add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
     (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))))
 
+(with-eval-after-load 'org
+  (use-package org-fragtog
+    :config
+    (add-hook 'org-mode-hook 'org-fragtog-mode)))
+
 (provide 'init-org)
 ;;; init-org.el ends here
