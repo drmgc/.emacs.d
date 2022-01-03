@@ -69,7 +69,7 @@
 ;;------------------------------------------------------------------------------
 
 (defvar daylight-hours-by-month (make-list 12 '(9 . 18)))
-(setq daylight-hours-by-month '((8 . 19) ; январь
+(setq daylight-hours-by-month '((10 . 15) ; январь
                                 (8 . 19) ; февраль
                                 (8 . 19) ; март
                                 (8 . 19) ; апрель
