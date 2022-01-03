@@ -143,6 +143,9 @@ Ring is placed in `drmgc/eol-symbols-ring`.  Non-nil variable `current-prefix-ar
 (when (require-package 'rainbow-delimiters)
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
+(when (require-package 'rainbow-identifiers)
+  (add-hook 'prog-mode-hook 'rainbow-identifiers-mode))
+
 
 (when (maybe-require-package 'symbol-overlay)
   (dolist (hook '(prog-mode-hook html-mode-hook yaml-mode-hook conf-mode-hook))
