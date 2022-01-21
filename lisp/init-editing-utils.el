@@ -215,9 +215,7 @@ Ring is placed in `drmgc/eol-symbols-ring`.  Non-nil variable `current-prefix-ar
 (global-set-key (kbd "C-c m e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-c m a") 'mc/edit-beginnings-of-lines)
 
-;; Train myself to use M-f and M-b instead
-(global-unset-key [M-left])
-(global-unset-key [M-right])
+(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
 (defun kill-back-to-indentation ()
   "Kill from point back to the first non-whitespace character on the line."
