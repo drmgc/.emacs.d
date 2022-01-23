@@ -9,7 +9,8 @@
          (csharp-mode . lsp-deferred)
          (c-mode . lsp-deferred)
          (typescript-mode . lsp-deferred)
-         (web-mode . lsp-deferred)))
+         ;; (web-mode . lsp-deferred)
+         ))
 
 
 (use-package lsp-ui :commands lsp-ui-mode)
