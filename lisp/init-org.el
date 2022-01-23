@@ -388,9 +388,7 @@ typical word processor."
     (org-babel-do-load-languages 'org-babel-load-languages '((plantuml . t)))))
 
 (with-eval-after-load 'org
-  (use-package org-fragtog
-    :config
-    (add-hook 'org-mode-hook 'org-fragtog-mode)))
+  (use-package org-fragtog))
 
 (provide 'init-org)
 ;;; init-org.el ends here
