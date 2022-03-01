@@ -71,7 +71,7 @@
 (defvar daylight-hours-by-month (make-list 12 '(9 . 18)))
 (setq daylight-hours-by-month '((10 . 15) ; январь
                                 (10 . 15) ; февраль
-                                (8 . 19) ; март
+                                (9 . 17) ; март
                                 (8 . 19) ; апрель
                                 (8 . 19) ; май
                                 (8 . 19) ; июнь
