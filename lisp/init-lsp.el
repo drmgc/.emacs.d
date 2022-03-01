@@ -10,6 +10,7 @@
          (c-mode . lsp-deferred)
          (typescript-mode . lsp-deferred)
          ;; (web-mode . lsp-deferred)
+         (haskell-mode . lsp-deferred)
          ))
 
 
