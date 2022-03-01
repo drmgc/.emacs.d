@@ -12,5 +12,8 @@
   :config
   (flycheck-add-next-checker 'haskell-dante '(info . haskell-hlint)))
 
+(use-package lsp-haskell
+  :after lsp)
+
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
