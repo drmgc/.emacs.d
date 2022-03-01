@@ -367,7 +367,7 @@ typical word processor."
      (dot . t)
      (emacs-lisp . t)
      (gnuplot . t)
-     (haskell . nil)
+     (haskell . t)
      (latex . t)
      (ledger . t)
      (ocaml . nil)
