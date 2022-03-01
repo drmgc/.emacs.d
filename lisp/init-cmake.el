@@ -7,8 +7,9 @@
 (add-hook 'cmake-mode-hook
           (lambda ()
             (drmgc/enable-tabs)
-            (setq indent-tabs-mode t)
-            (setq tab-width drmgc/tab-width)))
+            (setq indent-tabs-mode nil)
+            (setq tab-width 2)
+            (setq cmake-tab-width 2)))
 
 (provide 'init-cmake)
 ;;; init-cmake.el ends here
