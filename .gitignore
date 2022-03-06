@@ -61,3 +61,5 @@ site-lisp/package/
 
 # emojify
 /emojis
+
+.lsp-eslint-choices
