@@ -63,3 +63,4 @@ site-lisp/package/
 /emojis
 
 .lsp-eslint-choices
+/eln-cache
