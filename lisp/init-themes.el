@@ -7,7 +7,6 @@
 ;;------------------------------------------------------------------------------
 (set-frame-font "Hack" nil t)
 
-
 (require-package 'atom-one-dark-theme)
 (require-package 'one-themes)
 (require-package 'vscode-dark-plus-theme)
@@ -72,7 +71,7 @@
 (setq daylight-hours-by-month '((10 . 15) ; январь
                                 (10 . 15) ; февраль
                                 (9 . 17) ; март
-                                (8 . 19) ; апрель
+                                (9 . 17) ; апрель
                                 (8 . 19) ; май
                                 (8 . 19) ; июнь
                                 (8 . 19) ; июль
