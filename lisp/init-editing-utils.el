@@ -350,6 +350,11 @@ ORIG is the advised function, which is called with its ARGS."
 (use-package embrace
   :bind ("C-," . embrace-commander))
 
+;; Scroll
+(global-set-key (kbd "C-S-M-n") 'scroll-up-line)
+(global-set-key (kbd "C-S-M-p") 'scroll-down-line)
+
+
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
