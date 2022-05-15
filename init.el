@@ -159,6 +159,7 @@
 (require 'init-windows) ; окошечки
 (require 'init-sessions) ; сессии
 (require 'init-mmm)
+(require 'init-polymode)
 
 (use-package editorconfig
   :ensure t
