@@ -7,6 +7,9 @@
 ;;------------------------------------------------------------------------------
 (set-frame-font "Hack" nil t)
 
+(if (eq system-type 'darwin)
+    (set-frame-font "Hack 15" nil t))
+
 (require-package 'atom-one-dark-theme)
 (require-package 'one-themes)
 (require-package 'vscode-dark-plus-theme)
