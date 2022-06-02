@@ -170,6 +170,24 @@
 
 
 ;;----------------------------------------------------------------------------
+;; reverse-im
+;;----------------------------------------------------------------------------
+(use-package reverse-im
+  :ensure t
+  :demand t
+  :after char-fold
+  :bind
+  ("C-c M-t" . reverse-im-translate-word)
+  :custom
+  (reverse-im-char-fold t) ; use lax matching
+  (reverse-im-read-char-advice-function #'reverse-im-read-char-include)
+  (reverse-im-input-methods '("russian-computer"))
+  :config
+  (reverse-im-mode t))
+
+
+
+;;----------------------------------------------------------------------------
 ;; writeroom-mode
 ;;----------------------------------------------------------------------------
 (use-package writeroom-mode
