@@ -7,6 +7,9 @@
 ;;------------------------------------------------------------------------------
 (set-frame-font "Hack" nil t)
 
+(if (string-equal (system-name) "sabertooth")
+    (set-frame-font "Hack 12" nil t))
+
 (if (eq system-type 'darwin)
     (set-frame-font "Hack 15" nil t))
 
