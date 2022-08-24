@@ -21,6 +21,8 @@
             (setq truncate-lines t)
             (setq tab-width 4)
 
+            (setq paragraph-separate "[     ]*\\(//+\\|\\**\\)\\([  ]*\\| <.*>\\)$\\|^\f")
+
             (define-key csharp-mode-map (kbd "C-c f") 'omnisharp-code-format-region)
             (define-key csharp-mode-map (kbd "C-c C-f") 'omnisharp-code-format-entire-file)
             (define-key csharp-mode-map (kbd "C-c r") 'omnisharp-rename)

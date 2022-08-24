@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# contributor : Alejandro Espinoza Esparza <aespinoza@structum.com.mx>
+# contributor: Sergey Naumov <drmgc@yandex.ru>
 # name: /// <summary> ... </summary>
-# key: comment
+# key: summary
 # --
 /// <summary>
 /// $1

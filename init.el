@@ -178,6 +178,7 @@
   :after char-fold
   :bind
   ("C-c M-t" . reverse-im-translate-word)
+  ("C-c r" . reverse-im)
   :custom
   (reverse-im-char-fold t) ; use lax matching
   (reverse-im-read-char-advice-function #'reverse-im-read-char-include)

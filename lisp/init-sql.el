@@ -134,5 +134,35 @@ This command currently blocks the UI, sorry."
 
 (use-package ejc-sql)
 
+
+
+;; Indenting inline SQL
+
+(use-package expand-region)
+
+(require 'sql-indent)
+
+(defun drmgc/sql-indent-string ()
+  "Indent the string under the cursor as SQL."
+  (interactive)
+  (save-excursion
+    (er/mark-inside-quotes)
+    (let* ((text (buffer-substring-no-properties (region-beginning) (region-end)))
+           (pos (region-beginning))
+           (column (progn (goto-char pos) (current-column)))
+           (formatted-text (with-temp-buffer
+                             (insert text)
+                             (delete-trailing-whitespace)
+                             (sql-indent-buffer)
+                             (replace-string "\n" (concat "\n" (make-string column (string-to-char " "))) nil (point-min) (point-max))
+                             (buffer-string))))
+      (delete-region (region-beginning) (region-end))
+      (goto-char pos)
+      (insert formatted-text))))
+
+(global-set-key (kbd "C-c C-= C-s") 'drmgc/sql-indent-string)
+
+
+
 (provide 'init-sql)
 ;;; init-sql.el ends here

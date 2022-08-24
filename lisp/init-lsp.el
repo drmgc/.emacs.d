@@ -8,6 +8,7 @@
   :hook ((lsp-mode . lsp-enable-which-key-integration)
          (csharp-mode . lsp-deferred)
          (c-mode . lsp-deferred)
+         (js-mode . lsp-deferred)
          (typescript-mode . lsp-deferred)
          ;; (web-mode . lsp-deferred)
          (haskell-mode . lsp-deferred)

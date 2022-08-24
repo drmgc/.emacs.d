@@ -8,7 +8,7 @@
 (set-frame-font "Hack" nil t)
 
 (if (string-equal (system-name) "sabertooth")
-    (set-frame-font "Hack 12" nil t))
+    (set-frame-font "Hack 11" nil t))
 
 (if (eq system-type 'darwin)
     (set-frame-font "Hack 15" nil t))
@@ -36,7 +36,7 @@
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
 (defun disable-all-themes ()
-  "disable all active themes."
+  "Disable all active themes."
   (dolist (i custom-enabled-themes)
     (disable-theme i)))
 
@@ -79,8 +79,8 @@
                                 (9 . 17) ; март
                                 (9 . 17) ; апрель
                                 (8 . 19) ; май
-                                (8 . 19) ; июнь
-                                (8 . 19) ; июль
+                                (7 . 20) ; июнь
+                                (7 . 20) ; июль
                                 (8 . 18) ; август
                                 (8 . 17) ; сентябрь
                                 (8 . 16) ; октябрь

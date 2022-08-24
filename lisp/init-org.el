@@ -369,7 +369,7 @@ typical word processor."
      (gnuplot . t)
      (haskell . t)
      (latex . t)
-     (ledger . nil)
+     (ledger . t)
      (ocaml . nil)
      (octave . t)
      (plantuml . t)
@@ -379,6 +379,9 @@ typical word processor."
      (,(if (locate-library "ob-sh") 'sh 'shell) . t)
      (sql . t)
      (sqlite . t))))
+
+(with-eval-after-load 'org
+  (setq org-babel-python-command "python3"))
 
 (with-eval-after-load 'org
   (use-package plantuml-mode
