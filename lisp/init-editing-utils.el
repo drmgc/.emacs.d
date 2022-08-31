@@ -355,6 +355,12 @@ ORIG is the advised function, which is called with its ARGS."
          ("C-M-, C-M-a" . embrace-add)
          ("C-M-, C-M-d" . embrace-delete)
          ("C-M-, C-M-c" . embrace-change)))
+
+
+(use-package string-inflection
+  :bind (("C-c i" . string-inflection-cycle)
+         ("C-c C" . string-inflection-camelcase)
+         ("C-c L" . string-inflection-lower-camelcase)))
 
 ;; Scroll
 (global-set-key (kbd "C-S-M-n") 'scroll-up-line)
