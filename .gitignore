@@ -64,3 +64,4 @@ site-lisp/package/
 
 .lsp-eslint-choices
 /eln-cache
+/request
