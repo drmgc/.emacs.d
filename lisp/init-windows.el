@@ -22,6 +22,14 @@
 (global-set-key (kbd "C-x o") 'switch-window)
 (global-set-key (kbd "M-o") 'switch-window)
 
+
+;; Switching between buffers
+
+(global-set-key (kbd "C-x 9") 'previous-buffer)
+(global-set-key (kbd "C-x C-9") 'previous-buffer)
+(global-set-key (kbd "C-x 0") 'next-buffer)
+(global-set-key (kbd "C-x C-0") 'next-buffer)
+
 
 ;;----------------------------------------------------------------------------
 ;; When splitting window, show (other-buffer) in the new window
