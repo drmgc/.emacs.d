@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: interface
+# key: inei
+# --
+interface $1 ${2:extends $3 }${4:implements $5 }{$0}

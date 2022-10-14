@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lambda
+# key: ld
+# --
+($1)${2:: ${3:void}} => {$0}

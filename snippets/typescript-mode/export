@@ -2,4 +2,4 @@
 # name: export
 # key: e
 # --
-export $0
+export $0;

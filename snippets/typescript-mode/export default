@@ -2,4 +2,4 @@
 # name: export default
 # key: ed
 # --
-export default $0
+export default $0;
