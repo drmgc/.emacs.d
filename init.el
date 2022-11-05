@@ -290,6 +290,8 @@
          ("\\.fs\\'" . glsl-mode)
          ("\\.gs\\'" . glsl-mode)))
 
+(require 'init-nim)
+
 (require 'init-gdscript)
 (require 'init-rust)
 
