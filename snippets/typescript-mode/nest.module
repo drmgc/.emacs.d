@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Nest / Module
+# --
+import { Module } from '@nestjs/common';
+
+@Module({ $0 })
+export class $1Module {}

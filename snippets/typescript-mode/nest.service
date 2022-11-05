@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Nest / Service
+# --
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class $1Service {$0}
