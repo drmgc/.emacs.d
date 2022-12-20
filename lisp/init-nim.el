@@ -6,7 +6,7 @@
   :hook
   (nim-mode . (lambda ()
                 (setq-local drmgc/eol-symbols-ring '(":" ","))
-                (lsp-defered)
+                (lsp-deferred)
                 )))
 
 (provide 'init-nim)
