@@ -11,7 +11,10 @@
     (set-frame-font "Hack 11" nil t))
 
 (if (string-equal (system-name) "drmgc-e5spsoe")
-    (set-frame-font "Hack 12" nil t))
+    ;; (set-frame-font "Hack 12" nil t)
+    ;; (set-frame-font "Monocraft 11" nil t)
+    (set-frame-font "Fira Code 12" nil t)
+  )
 
 (if (eq system-type 'darwin)
     (set-frame-font "Hack 15" nil t))
@@ -57,7 +60,8 @@
   (setq custom-enabled-themes '(one-light))
   (custom-set-faces
    '(whitespace-tab ((t (:foreground "#ccc")))))
-  (reapply-themes))
+  (reapply-themes)
+  (set-frame-font "Hack" nil t))
 
 (defun dark ()
   "Activate a dark color theme."
@@ -66,7 +70,8 @@
   (setq custom-enabled-themes '(atom-one-dark))
   (custom-set-faces
    '(whitespace-tab ((t (:foreground "#353540")))))
-  (reapply-themes))
+  (reapply-themes)
+  (set-frame-font "Fira Code" nil t))
 
 ;; (add-hook 'after-init-hook 'dark)
 
