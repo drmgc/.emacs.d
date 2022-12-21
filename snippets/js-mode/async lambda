@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: asynclambda
+# key: ald
+# --
+async ($1) => {$0}

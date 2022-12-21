@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: long (typed) lambda
+# key: alld
+# --
+async ($1)${2:: Promise<${3:void}>} => {$0}
