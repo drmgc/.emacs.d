@@ -369,7 +369,7 @@ typical word processor."
      (gnuplot . t)
      (haskell . t)
      (latex . t)
-     (ledger . t)
+     (ledger . nil)
      (ocaml . nil)
      (octave . t)
      (plantuml . t)
