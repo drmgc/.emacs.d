@@ -349,13 +349,13 @@ ORIG is the advised function, which is called with its ARGS."
 
 
 (use-package embrace
-  :bind (("C-," . embrace-commander)
-         ("C-M-, a" . embrace-add)
-         ("C-M-, d" . embrace-delete)
-         ("C-M-, c" . embrace-chagne)
-         ("C-M-, C-M-a" . embrace-add)
-         ("C-M-, C-M-d" . embrace-delete)
-         ("C-M-, C-M-c" . embrace-change)))
+  :bind (("C-, C-," . embrace-commander)
+         ("C-, a" . embrace-add)
+         ("C-, d" . embrace-delete)
+         ("C-, c" . embrace-chagne)
+         ("C-, C-a" . embrace-add)
+         ("C-, C-d" . embrace-delete)
+         ("C-, C-c" . embrace-change)))
 
 
 (use-package string-inflection
