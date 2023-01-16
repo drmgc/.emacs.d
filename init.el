@@ -122,7 +122,7 @@
 (define-key key-translation-map (kbd "C-?") (kbd "C-h"))
 
 (require 'no-easy-keys)
-(no-easy-keys 1)
+;; (no-easy-keys 1)
 
 
 ;;----------------------------------------------------------------------------
