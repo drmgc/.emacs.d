@@ -12,5 +12,12 @@
 (maybe-require-package 'forge)
 (maybe-require-package 'github-review)
 
+(with-eval-after-load 'forge
+  (add-to-list 'forge-alist
+               '("fbet-gitlab.ex2b.co"
+                 "fbet-gitlab.ex2b.co/api/v4"
+                 "fbgl"
+                 forge-gitlab-repository)))
+
 (provide 'init-github)
 ;;; init-github.el ends here

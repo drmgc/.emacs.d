@@ -34,54 +34,9 @@
  truncate-lines nil
  truncate-partial-width-windows nil)
 
-(add-hook 'after-init-hook 'global-auto-revert-mode)
-(setq global-auto-revert-non-file-buffers t
-      auto-revert-verbose nil)
-(with-eval-after-load 'autorevert
-  (diminish 'auto-revert-mode))
 
-(add-hook 'after-init-hook 'transient-mark-mode)
-
-
-
-;; Huge files
-
-(require-package 'vlf)
-
-(defun ffap-vlf ()
-  "Find file at point with VLF."
-  (interactive)
-  (let ((file (ffap-file-at-point)))
-    (unless (file-exists-p file)
-      (error "File does not exist: %s" file))
-    (vlf file)))
-
-
-;;; A simple visible bell which works in all terminal types
-(require-package 'mode-line-bell)
-(add-hook 'after-init-hook 'mode-line-bell-mode)
-
-
-
-(when (maybe-require-package 'beacon)
-  (setq-default beacon-lighter "")
-  (setq-default beacon-size 20)
-  (add-hook 'after-init-hook 'beacon-mode))
-
-
-
-;;; Newline behaviour
-
-(global-set-key (kbd "RET") 'newline-and-indent)
-(defun sanityinc/newline-at-end-of-line ()
-  "Move to end of line, enter a newline, and reindent."
-  (interactive)
-  (move-end-of-line 1)
-  (newline-and-indent))
-
-(global-set-key (kbd "S-<return>") 'sanityinc/newline-at-end-of-line)
-(global-set-key (kbd "C-S-m") 'sanityinc/newline-at-end-of-line)
-(global-set-key (kbd "C-M-m") 'sanityinc/newline-at-end-of-line)
+(global-set-key (kbd "C-c C-u") 'unicode-unescape-region)
+(global-set-key (kbd "C-c C-e C-u") 'unicode-escape-region)
 
 
 
@@ -368,6 +323,29 @@ ORIG is the advised function, which is called with its ARGS."
 (global-set-key (kbd "C-S-M-p") 'scroll-down-line)
 
 
+;;
+;; reverse-im
+;;
+
+(use-package char-fold
+  :custom
+  (char-fold-symmetric t)
+  (search-default-mode #'char-fold-to-regexp))
+
+(use-package reverse-im
+  :ensure t
+  :demand t
+  :after char-fold
+  :bind
+  ("C-c M-t" . reverse-im-translate-word)
+  ("C-c r" . reverse-im)
+  :custom
+  (reverse-im-char-fold t) ; use lax matching
+  (reverse-im-read-char-advice-function #'reverse-im-read-char-include)
+  (reverse-im-input-methods '("russian-computer"))
+  :config
+  (reverse-im-mode t))
+
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here

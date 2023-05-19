@@ -45,8 +45,8 @@
   (require-package 'scss-mode))
 
 (add-hook 'scss-mode-hook (lambda ()
-                            (setq indent-tabs-mode t)
-                            (setq tab-width 4)))
+                            (setq indent-tabs-mode nil)
+                            (setq tab-width 2)))
 
 (setq-default scss-compile-at-save nil)
 

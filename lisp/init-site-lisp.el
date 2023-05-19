@@ -11,7 +11,7 @@
     (progn
       (setq load-path
             (append
-             (remove-if-not
+             (cl-remove-if-not
               (lambda (dir) (file-directory-p dir))
               (directory-files (expand-file-name parent-dir) t "^[^\\.]"))
              load-path)))))

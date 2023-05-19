@@ -78,6 +78,7 @@
 ;;----------------------------------------------------------------------------
 
 (defvar drmgc/tab-width 4)
+(setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset drmgc/tab-width)
 (defun drmgc/disable-tabs ()
   "Disable TABS."
@@ -85,7 +86,7 @@
 
 (defun drmgc/enable-tabs ()
   "Enable TABs."
-  (setq indent-tabs-mode t))
+  (setq indent-tabs-mode nil))
 
 (defun drmgc/set-tab-width ()
   "Enable TABs."
@@ -170,30 +171,10 @@
 
 
 
-;;; reverse-im
+;;; asdf
 
 (require 'asdf)
 (asdf-enable)
-
-
-;;----------------------------------------------------------------------------
-;; reverse-im
-;;----------------------------------------------------------------------------
-(use-package reverse-im
-  :ensure t
-  :demand t
-  :after char-fold
-  :bind
-  ("C-c M-t" . reverse-im-translate-word)
-  ("C-c r" . reverse-im)
-  :custom
-  (reverse-im-char-fold t) ; use lax matching
-  (reverse-im-read-char-advice-function #'reverse-im-read-char-include)
-  (reverse-im-input-methods '("russian-computer"))
-  :config
-  (reverse-im-mode t))
-
-
 
 ;;----------------------------------------------------------------------------
 ;; writeroom-mode
@@ -335,6 +316,8 @@
 
 (when (fboundp 'global-eldoc-mode)
   (add-hook 'after-init-hook 'global-eldoc-mode))
+
+;; (use-package eldoc-box)
 
 (require 'init-direnv)
 

@@ -6,6 +6,7 @@
 ;; TODO Default sort order should place [a-z] before punctuation
 
 (setq tab-always-indent 'complete)
+;; (setq company-idle-delay 0)
 (add-to-list 'completion-styles 'initials t)
 
 (when (maybe-require-package 'company)

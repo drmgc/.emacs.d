@@ -5,6 +5,10 @@
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-l")
+  ;; (setq lsp-disabled-clients '(eslint))
+  (setq lsp-prefer-capf t)
+  (setq lsp-print-io nil)
+  (setq lsp-log-io nil)
   :hook ((lsp-mode . lsp-enable-which-key-integration)
          (csharp-mode . lsp-deferred)
          (c-mode . lsp-deferred)

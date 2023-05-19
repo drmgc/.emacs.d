@@ -38,11 +38,11 @@
                    company-files
                    company-yasnippet))
             (setq tab-width drmgc/web-tab-width
-                  indent-tabs-mode t
+                  indent-tabs-mode nil
                   web-mode-markup-indent-offset drmgc/web-tab-width
                   web-mode-code-indent-offset drmgc/web-tab-width
                   web-mode-css-indent-offset drmgc/web-tab-width)
-            (web-mode-use-tabs)
+            ;; (web-mode-use-tabs)
             (setq web-mode-enable-current-column-hightlight t
                   web-mode-enable-current-element-hightlight t)
             (setq web-mode-enable-auto-pairing t)
