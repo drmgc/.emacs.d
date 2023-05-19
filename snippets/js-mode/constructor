@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: constructor
-# key: constr
+# key: con
 # --
 constructor($1) {$0}

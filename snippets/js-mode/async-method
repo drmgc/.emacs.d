@@ -2,4 +2,4 @@
 # name: async method
 # key: amt
 # --
-async $1($2)${3:: Promise<${4:void}>} {$0}
+async $1($2) {$0}

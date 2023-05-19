@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: JSDoc @typedef
+# key: jdtd
+# --
+/** @typedef {$1} $0 */
