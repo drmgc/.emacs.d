@@ -17,31 +17,40 @@
 ;; Make frame transparency overridable
 (defvar drmgc/frame-transparency '(90 . 90))
 
-(let ((minver "24.5"))
+(let ((minver "27.1"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
-(when (version< emacs-version "25.1")
-  (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
+;; (when (version< emacs-version "25.1")
+  ;; (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
 
+(global-set-key (kbd "C-c C-0 C-s") 'profiler-start)
+(global-set-key (kbd "C-c C-0 C-k") 'profiler-stop)
+(global-set-key (kbd "C-c C-0 C-r") 'profiler-report)
+
+
+
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Adjust garbage collection thresholds during startup, and thereafter
-;;----------------------------------------------------------------------------
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
+;;
+(let ((normal-gc-cons-threshold (* 32 1024 1024))
       (init-gc-cons-threshold (* 512 1024 1024)))
   (setq gc-cons-threshold init-gc-cons-threshold)
+  ;; (setq gc-cons-percentage 0.5)
   (add-hook 'emacs-startup-hook
             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Bootstrap config
-;;----------------------------------------------------------------------------
+;;
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
@@ -49,9 +58,10 @@
 (require 'init-elpa)      ;; Machinery for installing required packages
 (require 'init-exec-path) ;; Set up $PATH
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; use-package
-;;----------------------------------------------------------------------------
+;;
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
@@ -59,25 +69,34 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Allow users to provide an optional "init-preload-local.el"
-;;----------------------------------------------------------------------------
+;;
 (require 'init-preload-local nil t)
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Load configs for specific features and modes
-;;----------------------------------------------------------------------------
+;;
 
 (require-package 'diminish)
 (maybe-require-package 'scratch)
 (require-package 'command-log-mode)
 
+
 
-;;----------------------------------------------------------------------------
+;; ;; gcmh
+;; (use-package gcmh
+;;   :config (gcmh-mode 1))
+
+
+
+;;
 ;; Indentation
-;;----------------------------------------------------------------------------
+;;
 
-(defvar drmgc/tab-width 4)
+(defvar drmgc/tab-width 2)
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset drmgc/tab-width)
 (defun drmgc/disable-tabs ()
@@ -85,7 +104,7 @@
   (setq indent-tabs-mode nil))
 
 (defun drmgc/enable-tabs ()
-  "Enable TABs."
+  "Enable TABs. Deprecated"
   (setq indent-tabs-mode nil))
 
 (defun drmgc/set-tab-width ()
@@ -93,7 +112,7 @@
   (setq tab-width drmgc/tab-width))
 
 (add-hook 'prog-mode-hook 'drmgc/set-tab-width)
-(add-hook 'c-mode-common-hook 'drmgc/enable-tabs)
+(add-hook 'c-mode-common-hook 'drmgc/disable-tabs)
 
 (add-hook 'lisp-mode-hook 'drmgc/disable-tabs)
 (add-hook 'emacs-lisp-mode-hook 'drmgc/disable-tabs)
@@ -102,9 +121,10 @@
 (setq backward-delete-char-untabify-method 'hungry)
 
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; whitespace-mode
-;;----------------------------------------------------------------------------
+;;
 
 (setq whitespace-style '(face tabs tab-mark trailing))
 (custom-set-faces
@@ -113,22 +133,10 @@
   '((tab-mark 9 [124 9] [92 9]))) ; 124 is the ascii ID for '\|'
 (global-whitespace-mode)
 
-
-;;----------------------------------------------------------------------------
-;; Keys-rebindings
-;;----------------------------------------------------------------------------
-
-(define-key key-translation-map (kbd "C-h") (kbd "DEL"))
-(define-key key-translation-map (kbd "C-M-h") (kbd "M-DEL"))
-(define-key key-translation-map (kbd "C-?") (kbd "C-h"))
-
-(require 'no-easy-keys)
-;; (no-easy-keys 1)
-
-
-;;----------------------------------------------------------------------------
+
+;;
 ;; doom-modeline
-;;----------------------------------------------------------------------------
+;;
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :init
@@ -140,9 +148,9 @@
 ; (require 'init-osx-keys)
 (require 'init-gui-frames) ; чо касаема фреймов
 
-;; Emojis
-(use-package emojify
-  :hook (after-init . global-emojify-mode))
+;; ;; Emojis
+;; (use-package emojify
+;;   :hook (after-init . global-emojify-mode))
 
 (require 'init-dired)
 (require 'init-isearch)
@@ -176,9 +184,10 @@
 (require 'asdf)
 (asdf-enable)
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; writeroom-mode
-;;----------------------------------------------------------------------------
+;;
 (use-package writeroom-mode
   :bind (("C-M-S-z" . writeroom-mode)
          :map writeroom-mode-map
@@ -187,9 +196,10 @@
          ("C-M-=" . writeroom-adjust-width)))
 
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; shell-mode
-;;----------------------------------------------------------------------------
+;;
 (add-hook 'shell-mode-hook
           (lambda ()
             (face-remap-set-base 'comint-highlight-prompt :inherit nil)))
@@ -321,31 +331,34 @@
 
 (require 'init-direnv)
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Allow access from emacsclient
-;;----------------------------------------------------------------------------
+;;
 (add-hook 'after-init-hook
           (lambda ()
             (require 'server)
             (unless (server-running-p)
               (server-start))))
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Variables configured via the interactive 'customize' interface
-;;----------------------------------------------------------------------------
+;;
 (when (file-exists-p custom-file)
   (load custom-file))
 
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Locales (setting them earlier in this file doesn't work in X)
-;;----------------------------------------------------------------------------
+;;
 (require 'init-locales)
 
 
-;;----------------------------------------------------------------------------
-;; Allow users to provide an optional "init-local" containing personal settings
-;;----------------------------------------------------------------------------
+
+;;
+;; Allow users to provide an optional "init-local" containing personal sett
 (require 'init-local nil t)
 
 

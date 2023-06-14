@@ -3,22 +3,25 @@
 ;;; Code:
 
 (use-package go-mode
+  :after lsp
   :ensure t
   :bind (("C-c C-f C-f" . gofmt))
   :config
-  (defun my-go-mode-hook ()
-    (setq tab-width 2))
+  ;; (add-hook 'go-mode-hook #'lsp-deferred)
 
-  (add-hook 'go-mode-hook 'my-go-mode-hook))
+  (defun lsp-go-install-save-hooks ()
+    (add-hook 'before-save-hook #'lsp-format-buffer t t)
+    (add-hook 'before-save-hook #'lsp-organize-imports t t))
+  (add-hook 'go-mode-hook #'lsp-go-install-save-hooks))
 
 ;; (use-package go-rename
 ;;   :after go-mode)
 
-(use-package company-go
-  :after company
-  :hook (go-mode . (lambda ()
-                      (set (make-local-variable 'company-backends) '(company-go))
-                      (company-mode))))
+;; (use-package company-go
+;;   :after company
+;;   :hook (go-mode . (lambda ()
+;;                       (set (make-local-variable 'company-backends) '(company-go))
+;;                       (company-mode))))
 
 (provide 'init-go)
 ;;; init-go.el ends here

@@ -347,5 +347,19 @@ ORIG is the advised function, which is called with its ARGS."
   (reverse-im-mode t))
 
 
+
+;;
+;; Keys-rebindings
+;;
+
+(define-key key-translation-map (kbd "C-h") (kbd "DEL"))
+(define-key key-translation-map (kbd "C-M-h") (kbd "M-DEL"))
+(define-key key-translation-map (kbd "C-?") (kbd "C-h"))
+
+;; (require 'no-easy-keys)
+;; (no-easy-keys 1)
+
+
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here

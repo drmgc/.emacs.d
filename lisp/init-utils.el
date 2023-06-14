@@ -4,9 +4,10 @@
 
 (define-obsolete-function-alias 'after-load 'with-eval-after-load "")
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Handier way to add modes to auto-mode-alist
-;;----------------------------------------------------------------------------
+;;
 (defun add-auto-mode (mode &rest patterns)
   "Add entries to `auto-mode-alist' to use `MODE' for all given file `PATTERNS'."
   (dolist (pattern patterns)
@@ -21,9 +22,10 @@
   (add-hook (derived-mode-hook-name mode)
             (apply-partially 'sanityinc/set-major-mode-name name)))
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; String utilities missing from core emacs
-;;----------------------------------------------------------------------------
+;;
 (defun sanityinc/string-all-matches (regex str &optional group)
   "Find all matches for `REGEX' within `STR', returning the full match string or group `GROUP'."
   (let ((result nil)
@@ -35,9 +37,10 @@
     result))
 
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Delete the current file
-;;----------------------------------------------------------------------------
+;;
 (defun delete-this-file ()
   "Delete the current file, and kill the buffer."
   (interactive)
@@ -49,9 +52,10 @@
     (kill-this-buffer)))
 
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Rename the current file
-;;----------------------------------------------------------------------------
+;;
 (defun rename-this-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
   (interactive (list (read-string "New name: " (buffer-name))))
@@ -65,9 +69,10 @@
       (set-visited-file-name new-name)
       (rename-buffer new-name))))
 
-;;----------------------------------------------------------------------------
+
+;;
 ;; Browse current HTML file
-;;----------------------------------------------------------------------------
+;;
 (defun browse-current-file ()
   "Open the current file as a URL using `browse-url'."
   (interactive)

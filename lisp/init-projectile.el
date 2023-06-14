@@ -20,6 +20,12 @@
 
   (maybe-require-package 'ibuffer-projectile)
   ;; (projectile-global-mode nil)
+  (add-hook 'find-file-hook
+            (lambda ()
+              (when (file-remote-p default-directory)
+                (setq-local projectile-mode-line "Projectile"))))
+  (defadvice projectile-project-root (around ignore-remote first activate)
+    (unless (file-remote-p default-directory) ad-do-it))
   )
 
 

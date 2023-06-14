@@ -30,9 +30,13 @@
 ;; (use-package tern
 ;;   :hook js-mode)
 
+(define-key typescript-mode-map "\C-\M-j" 'c-indent-new-comment-line)
+
 
 
+;;
 ;; js2-mode
+;;
 
 ;; Change some defaults: customize them to override
 (setq-default js2-bounce-indent-p nil)
@@ -48,8 +52,8 @@
       (setq-local js2-mode-show-strict-warnings t)
       (when (derived-mode-p 'js-mode)
         (js2-minor-mode 1))))
-  (add-hook 'js-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive)
-  (add-hook 'js2-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive)
+  ;; (add-hook 'js-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive)
+  ;; (add-hook 'js2-mode-hook 'sanityinc/enable-js2-checks-if-flycheck-inactive)
 
   (js2-imenu-extras-setup))
 
@@ -88,9 +92,10 @@
   (when (fboundp 'coffee-mode)
     (add-to-list 'auto-mode-alist '("\\.coffee\\.erb\\'" . coffee-mode))))
 
-;; ---------------------------------------------------------------------------
+
+;;
 ;; Run and interact with an inferior JS via js-comint.el
-;; ---------------------------------------------------------------------------
+;;
 
 (when (maybe-require-package 'js-comint)
   (setq js-comint-program-command "node")
@@ -106,9 +111,10 @@
   (dolist (hook '(js2-mode-hook js-mode-hook))
     (add-hook hook 'inferior-js-keys-mode)))
 
-;; ---------------------------------------------------------------------------
+
+;;
 ;; Alternatively, use skewer-mode
-;; ---------------------------------------------------------------------------
+;;
 
 (when (maybe-require-package 'skewer-mode)
   (with-eval-after-load 'skewer-mode

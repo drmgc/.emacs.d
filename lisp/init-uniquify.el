@@ -2,9 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-;;----------------------------------------------------------------------------
+;;
 ;; Nicer naming of buffers for files with identical names
-;;----------------------------------------------------------------------------
+;;
 (require 'uniquify)
 
 (setq uniquify-buffer-name-style 'reverse)
@@ -13,4 +13,5 @@
 (setq uniquify-ignore-buffers-re "^\\*")
 
 
-(provide 'init-uniquify);;; init-uniquify.el ends here
+(provide 'init-uniquify)
+;;; init-uniquify.el ends here
