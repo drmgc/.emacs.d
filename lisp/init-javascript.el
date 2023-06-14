@@ -30,7 +30,8 @@
 ;; (use-package tern
 ;;   :hook js-mode)
 
-(define-key typescript-mode-map "\C-\M-j" 'c-indent-new-comment-line)
+(with-eval-after-load 'typescript-mode
+  (define-key typescript-mode-map "\C-\M-j" 'c-indent-new-comment-line))
 
 
 
